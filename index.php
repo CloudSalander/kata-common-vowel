@@ -4,7 +4,7 @@
 
 define('VOWELS',['a','e','i','o','u']);
 
-function getVowelsCount(string $word): array {
+function getVowelsCount(string $text): array {
     $vowelsCount = [
         "a" => 0,
         "e" => 0,
@@ -13,15 +13,17 @@ function getVowelsCount(string $word): array {
         "u" => 0
     ];
 
-    $word = strtolower($word);
-    $word = str_split($word);
+    $sanitizedText = sanitizeText($text);
 
-
-    foreach($word as $char) {
+    foreach($sanitizedText as $char) {
         if(in_array($char, VOWELS)) ++$vowelsCount[$char];
     }
-
+    
     return $vowelsCount;
+}
+
+function sanitizeText(string $text): array {
+    return str_split(strtolower($text));
 }
 
 function printVowelsCount(array $vowelsCount): void {
