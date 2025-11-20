@@ -25,10 +25,11 @@ function getVowelsCount(string $word): array {
 }
 
 function printVowelsCount(array $vowelsCount): void {
-
+    foreach($vowelsCount as $vowel => $vowelCount) {
+        echo "We have ".$vowelCount." ".$vowel."(s)".PHP_EOL;
+    }
 }
 
-//var_dump(VOWELS);
-var_dump(getVowelsCount("hoooouioolaaaaa"));
-//var_dump(printVowelsCount([]));
+$vowelsCount = getVowelsCount("hoooouioolaaaaa");
+printVowelsCount($vowelsCount);
 
