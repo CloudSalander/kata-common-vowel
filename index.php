@@ -18,7 +18,7 @@ function getVowelsCount(string $word): array {
 
 
     foreach($word as $char) {
-        echo $char;
+        if(in_array($char, VOWELS)) ++$vowelsCount[$char];
     }
 
     return $vowelsCount;
@@ -29,6 +29,6 @@ function printVowelsCount(array $vowelsCount): void {
 }
 
 //var_dump(VOWELS);
-var_dump(getVowelsCount("hola"));
+var_dump(getVowelsCount("hoooouioolaaaaa"));
 //var_dump(printVowelsCount([]));
 
